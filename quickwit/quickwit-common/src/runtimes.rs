@@ -72,7 +72,8 @@ impl RuntimesConfig {
         let num_threads_non_blocking = if num_cpus > 6 { 2 } else { 1 };
         // On the other hand the blocking actors are cpu intensive. We allocate
         // almost all of the threads to them.
-        let num_threads_blocking = (num_cpus - num_threads_non_blocking).max(1);
+        //let num_threads_blocking = (num_cpus - num_threads_non_blocking).max(1);
+        let num_threads_blocking = num_cpus;
         RuntimesConfig {
             num_threads_non_blocking,
             num_threads_blocking,
