@@ -100,7 +100,7 @@ impl IndexedSplitBuilder {
         let controlled_directory = ControlledDirectory::new(box_mmap_directory, io_controls);
 
         let index_writer =
-            index_builder.single_segment_index_writer(controlled_directory.clone(), 30_000_000)?;
+            index_builder.single_segment_index_writer(controlled_directory.clone(), 50_000_000)?;
         Ok(Self {
             split_attrs: SplitAttrs {
                 node_id: pipeline_id.node_id,
