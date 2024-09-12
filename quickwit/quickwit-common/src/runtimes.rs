@@ -69,11 +69,11 @@ impl RuntimesConfig {
 
     pub fn with_num_cpus(num_cpus: usize) -> Self {
         // Non blocking task are supposed to be io intensive, and not require many threads...
-        let num_threads_non_blocking = if num_cpus > 6 { 2 } else { 1 };
+        let num_threads_non_blocking = num_cpus;
         // On the other hand the blocking actors are cpu intensive. We allocate
         // almost all of the threads to them.
         //let num_threads_blocking = (num_cpus - num_threads_non_blocking).max(1);
-        let num_threads_blocking = num_cpus;
+        let num_threads_blocking = num_cpus * 2;
         RuntimesConfig {
             num_threads_non_blocking,
             num_threads_blocking,
