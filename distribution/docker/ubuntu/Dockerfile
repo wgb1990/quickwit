@@ -16,6 +16,15 @@ RUN apt-get -y update \
                           libssl3 \
     && rm -rf /var/lib/apt/lists/*
 
+RUN apt-get update && \
+    apt-get install -y tzdata && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+ENV TZ=Asia/Shanghai
+RUN echo "Asia/Shanghai" > /etc/timezone && \
+    ln -fs /usr/share/zoneinfo/$TZ /etc/localtime
+
 WORKDIR /quickwit
 RUN mkdir config qwdata
 COPY --from=builder /quickwit-v*/quickwit /usr/local/bin/quickwit
