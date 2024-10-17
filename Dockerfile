@@ -70,7 +70,7 @@ RUN apt-get update && \
 
 ENV TZ=Asia/Shanghai
 RUN echo "Asia/Shanghai" > /etc/timezone && \
-    ln -fs /usr/share/zoneinfo/$TZ /etc/localtime \
+    ln -fs /usr/share/zoneinfo/$TZ /etc/localtime
 
 WORKDIR /quickwit
 RUN mkdir config qwdata
