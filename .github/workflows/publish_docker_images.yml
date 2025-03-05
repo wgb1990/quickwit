@@ -13,7 +13,7 @@ on:
       - qw*
       - v*
 env:
-  REGISTRY_IMAGE: quickwit/quickwit
+  REGISTRY_IMAGE: wgb1990/quickwit-dewu
 
 jobs:
   docker:
@@ -23,9 +23,6 @@ jobs:
           - os: ubuntu-latest
             platform: linux/amd64
             platform_suffix: amd64
-          - os: gh-ubuntu-arm64
-            platform: linux/arm64
-            platform_suffix: arm64
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout
