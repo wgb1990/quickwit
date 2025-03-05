@@ -26,6 +26,7 @@ jobs:
             command: |
               sudo apt-get -y install protobuf-compiler
               rustup show active-toolchain || rustup toolchain install
+              rustup toolchain install 1.82-x86_64-unknown-linux-gnu
               CI=false yarn --cwd quickwit-ui build
               RUSTFLAGS="--cfg tokio_unstable" cargo build --features=postgres
               mkdir qwdata
