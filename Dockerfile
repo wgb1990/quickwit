@@ -32,6 +32,8 @@ RUN apt-get -y update \
 # Required by tonic
 RUN rustup component add rustfmt
 
+RUN rustup toolchain install 1.78-x86_64-unknown-linux-gnu
+
 COPY quickwit /quickwit
 COPY config/quickwit.yaml /quickwit/config/quickwit.yaml
 COPY --from=ui-builder /quickwit/quickwit-ui/build /quickwit/quickwit-ui/build
